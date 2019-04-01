@@ -8,7 +8,6 @@ class AddStudent extends Component {
     }
 
     handleInputChange = ({target: {name, value}}) => {
-        // const { name, value } = event.target;
 
         this.setState({
             [name]: value
