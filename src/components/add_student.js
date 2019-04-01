@@ -46,7 +46,8 @@ class AddStudent extends Component {
                     <input name="grade" autoComplete="off" id="grade" type="text" value={grade} onChange={this.handleInputChange} />
                     <label htmlFor="grade">Grade</label>
                 </div>
-                <button className="btn green">Add Student</button>
+                <button className="btn green waves-effect waves-light">Add Student
+                <i className="material-icons right">send</i></button>
             </form>
         );
     };
