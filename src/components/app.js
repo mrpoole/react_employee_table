@@ -4,59 +4,55 @@ import StudentTable from './student_table';
 import AddStudent from './add_student';
 import '../assets/css/app.scss';
 import React, { Component } from 'react';
-import studentData from '../dummy_data/student_list';
-
-let id = 100;
+import axios from 'axios';
 
 class App extends Component {
-    
+
     state = {
         students: [],
+        error: ''
     }
 
-    addStudent = student => {
-        student.id = id++;
-        this.setState({
-            students: [...this.state.students, student]
-        });
+    addStudent = async (student) => {
+        await axios.post('api/grades', student);
+
+        this.getStudentData();
     }
 
-    deleteStudent = id => {
-        const studentsCopy = this.state.students.slice();
-
-        const index = studentsCopy.findIndex((student) => {
-            return student.id === id;
-        });
-
-        if(index >= 0) {
-            studentsCopy.splice(index, 1);
-
-            this.setState({
-                students: [...studentsCopy]
-            });
-        }
+    deleteStudent = async (id) => {
+        await axios.delete(`/api/grades/${id}`);
+        
+        this.getStudentData();
     }
 
     componentDidMount() {
         this.getStudentData();
     }
 
-    getStudentData() {
-        //call the server here
-        this.setState({
-            //response from the server goes here
-            students: studentData
-        });
-    }
+    async getStudentData() {
+        try {
+            const resp = await axios.get('/api/grades');
 
-    render(){
+            this.setState({
+                students: resp.data.data
+            });
+
+        } catch (error) {
+            this.setState({
+                error: 'Error retrieving data'
+            });
+        }
+    };
+
+    render() {
         return (
             <div>
                 <h1 className="center">React SGT</h1>
 
+                <h5 className="red-text text-darken-2">{this.state.error}</h5>
                 <div className="row">
-                    <StudentTable col="s12 m8" list={this.state.students} delete={this.deleteStudent}/>
-                    <AddStudent col="s12 m4" add={this.addStudent}/>
+                    <StudentTable col="s12 m8" list={this.state.students} delete={this.deleteStudent} />
+                    <AddStudent col="s12 m4" add={this.addStudent} />
                 </div>
             </div>
         );
