@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     addStudent = async (student) => {
-        await axios.post('api/grades', student);
+        await axios.post('/api/grades', student);
 
         this.getStudentData();
     }

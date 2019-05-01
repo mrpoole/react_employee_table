@@ -1,14 +1,14 @@
-# React Student Grade Table
+# React Employee Table
 
-> Student grade table built with ReactJS
+> HR employee table built with ReactJS
 
 ### Setup Instructions
 
 > 1. Fork this repo
 > 1. Clone your forked copy of this repo
->    - `git clone https://github.com/mrpoole/react_sgt.git`
+>    - `git clone https://github.com/mrpoole/react_employee_table.git`
 > 1. Change directory into the newly cloned repo
->    - `cd react_sgt`
+>    - `cd react_employee_table`
 > 1. Install dependencies 
 >    - `npm install`
 > 1. Start dev server

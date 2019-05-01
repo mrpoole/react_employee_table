@@ -1,7 +1,7 @@
 {
   "name": "react_sgt",
   "version": "1.0.0",
-  "description": "Student grade table built with ReactJS",
+  "description": "HR employee table built with ReactJS",
   "main": "index.js",
   "proxy": {
     "/api/*": {
@@ -17,7 +17,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mrpoole/react_sgt.git"
+    "url": "https://github.com/mrpoole/react_employee_table.git"
   },
   "dependencies": {
     "axios": "^0.18.0",
