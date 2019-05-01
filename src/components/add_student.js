@@ -7,15 +7,15 @@ class AddStudent extends Component {
         grade: ''
     }
 
-    handleInputChange = ({target: {name, value}}) => {
+    handleInputChange = (event) => {
+        const { name, value } = event.target;
 
         this.setState({
             [name]: value
         });
-
     }
 
-    handleSubmit = event => {
+    handleSubmit(event){
         event.preventDefault();
 
         this.props.add({...this.state});
@@ -27,14 +27,14 @@ class AddStudent extends Component {
         });
     }
 
-    render() {
+    render(){
         const { col = 's12' } = this.props;
         const { name, course, grade } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit} className={`col ${col}`}>
+            <form onSubmit={this.handleSubmit.bind(this)} className={`col ${col}`}>
                 <div className="input-field">
-                    <input name="name" autoComplete="off" id="name" type="text" value={name} onChange={this.handleInputChange} />
+                    <input name="name" autoComplete="off" id="name" type="text" value={name} onChange={this.handleInputChange}/>
                     <label htmlFor="name">Student Name</label>
                 </div>
                 <div className="input-field">
@@ -45,11 +45,10 @@ class AddStudent extends Component {
                     <input name="grade" autoComplete="off" id="grade" type="text" value={grade} onChange={this.handleInputChange} />
                     <label htmlFor="grade">Grade</label>
                 </div>
-                <button className="btn green waves-effect waves-light">Add Student
-                <i className="material-icons right">send</i></button>
+                <button className="btn green">Add Student</button>
             </form>
         );
-    };
+    }
 }
 
 export default AddStudent;
