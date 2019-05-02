@@ -14,7 +14,15 @@ class App extends Component {
     }
 
     addEmployee = async (employee) => {
-        await axios.post('api/grades', employee);
+        console.log(employee);
+        await axios.post('/api/add-employee-to-db.php', {
+            name: employee.name,
+            position: employee.position,
+            office: employee.office,
+            extn: employee.extn,
+            start: employee.start,
+            salary: employee.salary
+        });
 
         this.getEmployeeData();
     }
@@ -32,7 +40,6 @@ class App extends Component {
     async getEmployeeData() {
         try {
             const resp = await axios.get('/api/list-employees-from-db.php');
-            // console.log(resp.data.employee_list)
 
             this.setState({
                 employees: resp.data.employee_list
