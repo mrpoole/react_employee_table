@@ -13,7 +13,7 @@ new WebpackDevServer(webpack(config), {
     noInfo: false,
     proxy: {
         "/api/*": {
-            "target": "http://localhost/react_employee_table/public"
+            "target": "http://localhost"
         }
     },
     stats: {

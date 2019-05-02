@@ -1,60 +1,59 @@
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min';
+import EmployeeTable from './employee_table';
+import AddEmployee from './add_employee';
 import '../assets/css/app.scss';
 import React, { Component } from 'react';
 import axios from 'axios';
-import AddStudent from './add_student';
-import StudentsTable from './student_table';
 
 class App extends Component {
+
     state = {
-        students: [],
+        employees: [],
         error: ''
     }
 
-    addStudent = async (student) => {
-        await axios.post('/api/grades', student);
+    addEmployee = async (employee) => {
+        await axios.post('api/grades', employee);
 
-        this.getStudentData();
+        this.getEmployeeData();
     }
 
-    deleteStudent = async (id) => {
+    deleteEmployee = async (id) => {
         await axios.delete(`/api/grades/${id}`);
-
-        this.getStudentData();
+        
+        this.getEmployeeData();
     }
 
     componentDidMount() {
-        this.getStudentData();
+        this.getEmployeeData();
     }
 
-    async getStudentData() {
-        // Call server here
-
+    async getEmployeeData() {
         try {
-            const resp = await axios.get('/api/grades');
+            const resp = await axios.get('/api/list-employees-from-db.php');
+            // console.log(resp.data.employee_list)
 
             this.setState({
-                students: resp.data.data
+                employees: resp.data.employee_list
             });
-        } catch(err){
 
+        } catch (error) {
             this.setState({
-                error: 'Error retrieving student data'
+                error: 'Error retrieving data'
             });
         }
-        
-    }
+    };
 
-    render(){
+    render() {
         return (
             <div>
-                <h1 className="center">React SGT</h1>
+                <h1 className="center">React Employee Table</h1>
 
                 <h5 className="red-text text-darken-2">{this.state.error}</h5>
                 <div className="row">
-                    <StudentsTable col="s12 m8" delete={this.deleteStudent} list={this.state.students}/>
-                    <AddStudent col="s12 m4" add={this.addStudent}/>
+                    <EmployeeTable col="s12 m9" list={this.state.employees} delete={this.deleteEmployee} />
+                    <AddEmployee col="s12 m3" add={this.addEmployee} />
                 </div>
             </div>
         );
