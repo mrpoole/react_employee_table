@@ -15,21 +15,30 @@ class App extends Component {
 
     addEmployee = async (employee) => {
         console.log(employee);
-        await axios.post('/api/add-employee-to-db.php', {
-            name: employee.name,
-            position: employee.position,
-            office: employee.office,
-            extn: employee.extn,
-            start: employee.start,
-            salary: employee.salary
-        });
+
+        // await axios.get('/api/add-employee-to-db.php', {
+        //     params: {
+        //         employee: employee
+        //     }
+        // }).then((resp)=>{console.log(resp)});
+
+        await axios.get('/api/add-employee-to-db.php', {
+            params: {
+                name: `${employee.name}`,
+                position: `${employee.position}`,
+                office: `${employee.office}`,
+                extn: `${employee.extn}`,
+                start: `${employee.start}`,
+                salary: `${employee.salary}`
+            }
+        }).then((resp) => { console.log(resp) });
 
         this.getEmployeeData();
     }
 
     deleteEmployee = async (id) => {
         await axios.delete(`/api/grades/${id}`);
-        
+
         this.getEmployeeData();
     }
 
