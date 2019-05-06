@@ -7,7 +7,7 @@ class EmployeeTable extends Component {
         const { col = 's12', list } = this.props;
 
         const employeeElements = list.map((employee) => {
-            return (<EmployeeRow key={employee.id} {...employee} delete={this.props.delete}/>);
+            return (<EmployeeRow key={employee.id} {...employee} delete={this.props.delete} edit={this.props.edit}/>);
         });
 
         return (

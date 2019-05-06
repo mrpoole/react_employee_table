@@ -5,12 +5,38 @@ import AddEmployee from './add_employee';
 import '../assets/css/app.scss';
 import React, { Component } from 'react';
 import axios from 'axios';
+import Modal from './modal';
 
 class App extends Component {
 
     state = {
         employees: [],
-        error: ''
+        error: '',
+        employeeToEdit: null
+    }
+
+    editEmployee = async (id) => {
+        await axios.get('/api/get-employee.php', {
+            params: {
+                id: `${id}`
+            }
+        }).then((resp) => { this.setState({
+            employeeToEdit: resp.data
+        })});
+
+        this.getEmployeeData();
+    }
+
+    getEmployee = async (id) => {
+        await axios.get('/api/get-employee.php', {
+            params: {
+                id: `${id}`
+            }
+        }).then((resp) => { this.setState({
+            employeeToEdit: resp.data
+        }); console.log(this.state.employeeToEdit) });
+
+        this.getEmployeeData();
     }
 
     addEmployee = async (employee) => {
@@ -64,8 +90,9 @@ class App extends Component {
 
                 <h5 className="red-text text-darken-2">{this.state.error}</h5>
                 <div className="row">
-                    <EmployeeTable col="s12 m9" list={this.state.employees} delete={this.deleteEmployee} />
+                    <EmployeeTable col="s12 m9" list={this.state.employees} delete={this.deleteEmployee} edit={this.editEmployee}/>
                     <AddEmployee col="s12 m3" add={this.addEmployee} />
+                    <Modal employee={this.state.employeeToEdit}/>
                 </div>
             </div>
         );
