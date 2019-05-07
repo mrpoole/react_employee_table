@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../assets/css/app.scss';
 
 class AddEmployee extends Component {
     state = {
@@ -34,11 +35,11 @@ class AddEmployee extends Component {
     }
 
     render() {
-        const { col = 's12' } = this.props;
         const { name, position, office, extn, start, salary } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit} className={`col ${col}`}>
+            <div className="form-wrapper">
+            <form onSubmit={this.handleSubmit} className="col s12 m3">
                 <div className="input-field">
                     <input name="name" autoComplete="off" id="name" type="text" value={name} onChange={this.handleInputChange} />
                     <label htmlFor="name">Employee Name</label>
@@ -66,6 +67,7 @@ class AddEmployee extends Component {
                 <button className="btn green waves-effect waves-light">Add Employee
                 <i className="material-icons right">send</i></button>
             </form>
+            </div>
         );
     };
 }

@@ -24,7 +24,7 @@ while($row = mysqli_fetch_assoc($data)){
         'position' => $row['position'],
         'office' => $row['office'],
         'extn' => (int) $row['extn'],
-        'start_date' => $row['start_date'],
+        'start' => $row['start_date'],
         'salary' => (int) $row['salary']
     ];
 }

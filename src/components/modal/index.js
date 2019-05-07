@@ -18,17 +18,13 @@ class Modal extends Component {
     }
 
     render() {
-        console.log('from modal',this.props);
         return (
             <div className="modal-container">
 
-                <div ref={Modal => { this.Modal = Modal }} id="modal1" className="modal">
+                <div ref={Modal => { this.Modal = Modal }} id="modal" className="modal">
                     <div className="modal-content">
-                        <h6>Are you sure you want to edit this employee?</h6>
-                        <UpdateEmployee/>
-                    </div>
-                    <div className="modal-footer">
-                        <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    <h6 className="right">Please fill out form fields to update employee information</h6>
+                        <UpdateEmployee employee={this.props} edit={this.props.edit}/>
                     </div>
                 </div>
             </div>

@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import EmployeeRow from './employee_row';
+import '../assets/css/app.scss';
 
 
 class EmployeeTable extends Component {
     render() {
-        const { col = 's12', list } = this.props;
+        const { list } = this.props;
 
         const employeeElements = list.map((employee) => {
-            return (<EmployeeRow key={employee.id} {...employee} delete={this.props.delete} edit={this.props.edit}/>);
+            return (<EmployeeRow key={employee.id} {...employee} delete={this.props.delete} get={this.props.get}/>);
         });
 
         return (
-            <div className={`col ${col}`}>
+            <div className="col s12 m9 employee-container">
                 <table className="highlight">
                     <thead>
                         <tr>

@@ -15,14 +15,19 @@ class App extends Component {
         employeeToEdit: null
     }
 
-    editEmployee = async (id) => {
-        await axios.get('/api/get-employee.php', {
+    editEmployee = async (employee) => {
+        console.log('edit called', employee.id);
+        await axios.get('/api/edit-employee.php', {
             params: {
-                id: `${id}`
+                id: `${employee.id}`,
+                name: `${employee.name}`,
+                position: `${employee.position}`,
+                office: `${employee.office}`,
+                extn: `${employee.extn}`,
+                start: `${employee.start}`,
+                salary: `${employee.salary}`
             }
-        }).then((resp) => { this.setState({
-            employeeToEdit: resp.data
-        })});
+        }).then((resp) => { console.log(resp)});
 
         this.getEmployeeData();
     }
@@ -34,7 +39,7 @@ class App extends Component {
             }
         }).then((resp) => { this.setState({
             employeeToEdit: resp.data
-        }); console.log(this.state.employeeToEdit) });
+        })});
 
         this.getEmployeeData();
     }
@@ -89,10 +94,10 @@ class App extends Component {
                 <h1 className="center">React Employee Table</h1>
 
                 <h5 className="red-text text-darken-2">{this.state.error}</h5>
-                <div className="row">
-                    <EmployeeTable col="s12 m9" list={this.state.employees} delete={this.deleteEmployee} edit={this.editEmployee}/>
+                <div className="row table-container">
+                    <EmployeeTable list={this.state.employees} delete={this.deleteEmployee} get={this.getEmployee}/>
                     <AddEmployee col="s12 m3" add={this.addEmployee} />
-                    <Modal employee={this.state.employeeToEdit}/>
+                    <Modal employee={this.state.employeeToEdit} edit={this.editEmployee}/>
                 </div>
             </div>
         );

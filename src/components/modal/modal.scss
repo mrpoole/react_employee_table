@@ -1,9 +1,28 @@
-.modal {
-    height: 60%;
-    font-size: 14px;
+.modal-container {
+    height: 100vh;
+    font-size: 12px;
+    box-sizing: border-box;
     
-    // .modal-footer {
-    //     position: absolute;
-    //     bottom: 4%;
-    // }
+    .modal {
+        max-height: 100%;
+        overflow: visible;
+    }
+
+    .update-form{
+        position: relative;
+
+        .error {
+            color: red;
+        }
+    }
+    
+    .button-container {
+        margin-bottom: 10px;
+        
+        button{
+            margin: 0 10px;
+        }
+    }
 }
+
+
