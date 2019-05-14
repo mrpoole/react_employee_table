@@ -23,7 +23,7 @@ class Modal extends Component {
 
                 <div ref={Modal => { this.Modal = Modal }} id="modal" className="modal">
                     <div className="modal-content">
-                    <h6 className="right">Please fill out form fields to update employee information</h6>
+                    <h6 className="right">Please enter the new details for this employee</h6>
                         <UpdateEmployee employee={this.props} edit={this.props.edit}/>
                     </div>
                 </div>
