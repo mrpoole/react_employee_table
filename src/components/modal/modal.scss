@@ -1,6 +1,6 @@
 .modal-container {
     height: 100vh;
-    font-size: 12px;
+    font-size: .8rem;
     box-sizing: border-box;
     
     .modal {
@@ -10,6 +10,7 @@
 
     .update-form{
         position: relative;
+        font-size: .8rem;
 
         .error {
             color: red;

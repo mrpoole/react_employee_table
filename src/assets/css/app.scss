@@ -38,10 +38,6 @@ html, body {
         @media screen and (max-width: 600px) {
             overflow-x: hidden;
         }
-
-        @media screen and (max-width: 600px) {
-            overflow-x: hidden;
-        }
     }
 
     .btn {
@@ -62,6 +58,10 @@ html, body {
 
     .employee-container {
         @media screen and (max-width: 600px) {
+            font-size: .9rem;
+        }
+
+        @media screen and (max-width: 450px) {
             font-size: .7rem;
         }
     }

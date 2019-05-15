@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import useForm from 'react-hook-form'
 import './modal.scss';
 
 class UpdateEmployee extends Component {
@@ -79,9 +78,9 @@ class UpdateEmployee extends Component {
                         <label htmlFor="salary" className="active">Salary</label>
                     </div>
                     <div className="right button-container">
-                        <button className="btn green waves-effect waves-light modal-close">Update Employee
+                        <button className="btn green darken-1 modal-close">Update Employee
                     <i className="material-icons right">send</i></button>
-                        <a className="btn red waves-effect waves-light modal-close">Cancel
+                        <a className="btn red darken-2 modal-close">Cancel
                     <i className="material-icons right">cancel</i></a>
                     </div>
                 </form>

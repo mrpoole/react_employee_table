@@ -33,14 +33,14 @@ class EmployeeTable extends Component {
                     </table>
                 </div>
                 <div className="next-buttons center">
-                    <button onClick={getAll} className={`btn blue`}>
+                    <button onClick={getAll} className={`btn grey`}>
                         <i className="material-icons center">fast_rewind</i></button>
-                    <button onClick={previous} className={`btn blue ${buttonState}`}>
+                    <button onClick={previous} className={`btn grey darken-2 ${buttonState}`}>
                         <i className="material-icons center">navigate_before</i></button>
                     <div className="range">{low} - {high}</div>
-                    <button onClick={next} className={`btn green ${nextButtonState}`}>
+                    <button onClick={next} className={`btn grey darken-2 ${nextButtonState}`}>
                         <i className="material-icons center">navigate_next</i></button>
-                        <button onClick={getLast} className={`btn blue`}>
+                        <button onClick={getLast} className={`btn grey`}>
                         <i className="material-icons center">fast_forward</i></button>
                 </div>
             </div>

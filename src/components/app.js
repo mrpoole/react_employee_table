@@ -31,30 +31,28 @@ class App extends Component {
     }
 
     checkIfButtonEnabled() {
-        if (this.state.offset >= 4 && this.state.nextClicked === false) {
+        if (this.state.offset >= 5 && this.state.nextClicked === false) {
             this.setState({
                 backButton: 'enabled'
             });
         }
-        if (this.state.offset <= 4 && this.state.nextClicked === true) {
+        if (this.state.offset <= 5 && this.state.nextClicked === true) {
             this.setState({
                 offset: 5,
                 backButton: 'disabled',
             })
         }
-        if ((this.state.low + 4) >= this.state.high) {
+        if ((this.state.low + 5) >= this.state.high) {
             this.setState({
                 nextButton: 'disabled',
                 low: (parseInt(this.state.high) + 1) - this.state.high % 5
             });
         }
         if (((this.state.low + 4) >= this.state.high) && this.state.high%5 === 0) {
-            console.log('got it');
             this.setState({
                 low: this.state.low -=5,
                 pffset: this.state.offset
             });
-            console.log('got it', this.state.offset, this.state.low);
         }
         
     }
@@ -72,7 +70,6 @@ class App extends Component {
                 offset: this.state.offset += 5,
                 low: this.state.low += 5
             });
-            console.log('next',this.state.offset, this.state.low);
             this.checkIfButtonEnabled();
         });
     };
@@ -92,7 +89,6 @@ class App extends Component {
                 low: this.state.low -= 5,
                 nextButton: 'enabled'
             });
-            console.log(this.state.offset, this.state.low);
             this.checkIfButtonEnabled();
         });
     };
@@ -200,7 +196,6 @@ class App extends Component {
                     backButton: 'enabled',
                     nextButton: 'disabled'
                 });
-                console.log(this.state.offset, this.state.low);
             });
         } else {
             let offsetNum = (parseInt(this.state.high)) - this.state.high % 5;
@@ -216,7 +211,6 @@ class App extends Component {
                     backButton: 'enabled',
                     nextButton: 'disabled'
                 });
-                console.log(this.state.offset, this.state.low);
             });
         }
         
@@ -225,7 +219,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1 className="center header-title">React Employee Table</h1>
+                <h1 className="center header-title">Employee Manager</h1>
 
                 <h5 className="red-text text-darken-2">{this.state.error}</h5>
                 <div className="row table-container">
