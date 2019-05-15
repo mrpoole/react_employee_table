@@ -1,0 +1,33 @@
+.modal-container {
+    height: 100vh;
+    font-size: .8rem;
+    box-sizing: border-box;
+    
+    .modal {
+        max-height: 100%;
+        overflow: visible;
+    }
+
+    .update-form{
+        position: relative;
+        font-size: .8rem;
+
+        .error {
+            color: red;
+        }
+    }
+    
+    .button-container {
+        margin-bottom: 10px;
+        
+        button{
+            margin: 0 10px;
+        }
+    }
+
+    .loading-icon {
+        display: none;
+    }
+}
+
+

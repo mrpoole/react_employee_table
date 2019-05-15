@@ -3,9 +3,12 @@ require_once('functions.php');
 set_exception_handler('handleError');
 require_once('mysqlconnect.php');
 
+$offset = (int)$_GET['offset'];
+
 $query = "SELECT * FROM `employees`
 ORDER BY `id`
-LIMIT 5";
+LIMIT 5
+OFFSET $offset";
 
 $data = mysqli_query($conn, $query);
 
