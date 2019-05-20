@@ -50,7 +50,7 @@ class AddEmployee extends Component {
 
         return (
             <div className="form-wrapper">
-                <form onSubmit={this.handleSubmit} className="col s12 m3">
+                <form onSubmit={this.handleSubmit} className="col s12 m12 l3 add-container">
                     <div className="input-field">
                         <input name="name" autoComplete="off" id="name" type="text" value={name} onChange={this.handleInputChange} />
                         <label htmlFor="name"><i className="material-icons left">person</i>Employee Name</label>

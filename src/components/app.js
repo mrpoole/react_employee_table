@@ -219,8 +219,8 @@ class App extends Component {
     render() {
         return (
             <div>
+                <div className="rotate-prompt center">This application works best in landscape! Thanks for rotating your phone</div>
                 <h1 className="center header-title">Employee Manager</h1>
-
                 <h5 className="red-text text-darken-2">{this.state.error}</h5>
                 <div className="row table-container">
                     <EmployeeTable getLast={this.getLast} getAll={this.getEmployeeData} low={this.state.low} high={this.state.high} buttonState={this.state.backButton} nextButtonState={this.state.nextButton} list={this.state.employees} delete={this.deleteEmployee} get={this.getEmployee} next={this.listNextTen} previous={this.listPreviousTen} getAll={this.getEmployeeData} />

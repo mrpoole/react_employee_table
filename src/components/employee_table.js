@@ -13,7 +13,7 @@ class EmployeeTable extends Component {
         });
 
         return (
-            <div className="col s14 m9 employee-container">
+            <div className="col s14 m10 l9 offset-m1 employee-container">
                 <div className="employee-table-container">
                     <table className="highlight">
                         <thead>
