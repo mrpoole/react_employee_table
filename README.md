@@ -1,6 +1,18 @@
 # Employee CMS
 
-> Employee content management system built with ReactJS
+A mobile-friendly content management system that users can create, read, update, and delete information based on employees in their company. This application is built using ReactJS and is connected to a MySQL database using PHP.
+
+### Features
+* CRUD
+* REST API
+
+### Technologies
+* PHP
+* MySQL
+* ReactJS
+* HTML 5
+* SCSS
+* MaterializeCSS
 
 ### Setup Instructions
 
