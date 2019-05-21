@@ -16,10 +16,10 @@ export default props => {
             <td>{props.start}</td>
             <td>{formatMoney(props.salary)}</td>
             <td>
-                <button onClick={() => props.delete(props.id)} className="btn red darken-2">
+                <button onClick={() => props.delete(props.id)} className="row-btn btn red darken-2">
                     <i className="material-icons">delete</i>
                 </button>
-                <button onClick={() => props.get(props.id)} className="light-green darken-1 btn modal-trigger" data-target="modal"><i className="material-icons">edit</i></button>
+                <button onClick={() => props.get(props.id)} className="row-btn light-green darken-1 btn modal-trigger" data-target="modal"><i className="material-icons">edit</i></button>
             </td>
         </tr>
     );

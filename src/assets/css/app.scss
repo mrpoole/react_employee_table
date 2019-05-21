@@ -11,23 +11,40 @@ body {
     color: #333;
 
     .rotate-prompt {
-        visibility: hidden;
+        display: none;
+    }
+
+    .rotate-text {
+        display: none;
+    }
+
+    .rotate-image {
+        display: none;
     }
 
     @media screen and (max-width: 377px) {
         .rotate-prompt {
             position: absolute;
-            bottom: 0;
+            top: 0;
             z-index: 1;
             height: 100vh;
             width: 100%;
-            background-image: url('/rotate.png');
             background-color: white;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center center;
             overflow: hidden;
-            visibility: visible;
+            display: inline-block;
+        }
+
+        .rotate-text {
+            font-size: 1.3rem;
+            margin-top: 4rem;
+            padding: 0 4rem;
+            display: inline-block;
+        }
+    
+        .rotate-image {
+            margin-top: 2rem;
+            height: 20rem;
+            display: inline-block;
         }
     }
 
