@@ -48,13 +48,13 @@ class App extends Component {
                 low: (parseInt(this.state.high) + 1) - this.state.high % 5
             });
         }
-        if (((this.state.low + 4) >= this.state.high) && this.state.high%5 === 0) {
+        if (((this.state.low + 4) >= this.state.high) && this.state.high % 5 === 0) {
             this.setState({
-                low: this.state.low -=5,
+                low: this.state.low -= 5,
                 pffset: this.state.offset
             });
         }
-        
+
     }
 
     listNextTen = async () => {
@@ -135,7 +135,7 @@ class App extends Component {
             }
         }).then((resp) => {
             console.log(resp);
-            if(resp.data.error){
+            if (resp.data.error) {
                 this.setState({
                     errorText: true
                 })
@@ -182,7 +182,7 @@ class App extends Component {
     };
 
     getLast = async () => {
-        if(this.state.high%5 === 0){
+        if (this.state.high % 5 === 0) {
             let offsetNum = this.state.high;
             await axios.get('/api/list-next-ten.php', {
                 params: {
@@ -206,21 +206,26 @@ class App extends Component {
             }).then((resp) => {
                 this.setState({
                     employees: resp.data.employee_list,
-                    offset: (parseInt(this.state.high)) - (this.state.high%5) +5,
+                    offset: (parseInt(this.state.high)) - (this.state.high % 5) + 5,
                     low: (parseInt(this.state.high) + 1) - 4,
                     backButton: 'enabled',
                     nextButton: 'disabled'
                 });
             });
         }
-        
+
     };
 
     render() {
         return (
             <div>
+                <div className="rotate-prompt center">
+                    <div>
+                        <div className="rotate-text">This application works best in landscape! Thank you for rotating your phone</div><p></p>
+                        <img src="/rotate.png" className="rotate-image"></img>
+                    </div>
+                </div>
                 <h1 className="center header-title">Employee Manager</h1>
-
                 <h5 className="red-text text-darken-2">{this.state.error}</h5>
                 <div className="row table-container">
                     <EmployeeTable getLast={this.getLast} getAll={this.getEmployeeData} low={this.state.low} high={this.state.high} buttonState={this.state.backButton} nextButtonState={this.state.nextButton} list={this.state.employees} delete={this.deleteEmployee} get={this.getEmployee} next={this.listNextTen} previous={this.listPreviousTen} getAll={this.getEmployeeData} />

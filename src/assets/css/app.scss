@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0 auto;
     height: 100vh;
     width: 100%;
@@ -9,6 +10,44 @@ html, body {
     font-size: .9rem;
     color: #333;
 
+    .rotate-prompt {
+        display: none;
+    }
+
+    .rotate-text {
+        display: none;
+    }
+
+    .rotate-image {
+        display: none;
+    }
+
+    @media screen and (max-width: 377px) {
+        .rotate-prompt {
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            height: 100vh;
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .rotate-text {
+            font-size: 1.3rem;
+            margin-top: 4rem;
+            padding: 0 4rem;
+            display: inline-block;
+        }
+    
+        .rotate-image {
+            margin-top: 2rem;
+            height: 20rem;
+            display: inline-block;
+        }
+    }
+
     @media screen and (max-width: 1050px) {
         overflow: auto;
     }
@@ -18,11 +57,18 @@ html, body {
         background: transparent;
     }
 
-    h1, h2, h3, h4, h5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
         font-family: 'Montserrat', sans-serif;
     }
 
-    input, label, form, .input-field {
+    input,
+    label,
+    form,
+    .input-field {
         font-family: 'Open Sans', sans-serif;
         font-size: .4rem;
     }
@@ -73,6 +119,12 @@ html, body {
 
         @media screen and (max-width: 600px) {
             font-size: 2rem;
+        }
+    }
+
+    .add-container {
+        @media screen and (max-width: 993px) {
+            margin-top: 3rem;
         }
     }
 }
